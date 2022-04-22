@@ -1,4 +1,7 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "adam-bot": "apps/adam-bot",
+    "super": "libs/super"
+  }
 }
