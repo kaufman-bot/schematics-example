@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"mime-version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2022-04-24T08:15:32.369Z\n"
+"PO-Revision-Date: 2022-04-24T08:15:32.369Z\n"
+
+msgid "Commands for super"
+msgstr "Commands for super"
+
+msgid "ping"
+msgstr "ping"
+
+msgid "pong"
+msgstr "pong"
+
+msgid "super"
+msgstr "super"
+
+msgid "Super commands"
+msgstr "Super commands"
+
+msgid "super help"
+msgstr "super help"
+
+msgid "super ping"
+msgstr "super ping"
