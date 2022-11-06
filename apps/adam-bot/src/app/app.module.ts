@@ -5,6 +5,7 @@ import { DebugMessagesModule } from '@kaufman-bot/debug-messages-server';
 import { FactsGeneratorModule } from '@kaufman-bot/facts-generator-server';
 import { LanguageSwitherModule } from '@kaufman-bot/language-swither-server';
 import { ShortCommandsModule } from '@kaufman-bot/short-commands-server';
+import { CustomInjectorModule } from 'nestjs-custom-injector';
 import { Module } from '@nestjs/common';
 import env from 'env-var';
 import { TelegrafModule } from 'nestjs-telegraf';
@@ -26,6 +27,7 @@ const BOT_NAMES = env.get('BOT_NAMES').required().asArray();
 
 @Module({
   imports: [
+    CustomInjectorModule.forRoot(),
     TelegrafModule.forRoot({
       token: env.get('TELEGRAM_BOT_TOKEN').required().asString(),
       launchOptions: {

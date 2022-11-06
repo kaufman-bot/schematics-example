@@ -22,6 +22,8 @@ export interface SuperConfig {
 
 @Injectable()
 export class SuperService implements BotCommandsProvider {
+  handlerId = SuperService.name;
+
   private readonly logger = new Logger(SuperService.name);
 
   constructor(
