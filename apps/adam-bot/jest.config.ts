@@ -1,4 +1,5 @@
-module.exports = {
+/* eslint-disable */
+export default {
   displayName: 'adam-bot',
   preset: '../../jest.preset.js',
   globals: {

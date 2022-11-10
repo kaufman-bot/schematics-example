@@ -1,6 +1,8 @@
 {
-  "root": "libs/super",
+  "name": "super",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/super/src",
+  "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
@@ -11,9 +13,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/super"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "libs/super/jest.config.js",
+        "jestConfig": "libs/super/jest.config.ts",
         "passWithNoTests": true
       }
     }

@@ -1,14 +1,18 @@
+import { InjectBot, NestjsGrammyModule } from '@grammyjs/nestjs';
 import { SuperModule } from '@kaufman-bot-generated/super';
 import { BotInGroupsModule } from '@kaufman-bot/bot-in-groups-server';
 import { BotCommandsModule } from '@kaufman-bot/core-server';
 import { DebugMessagesModule } from '@kaufman-bot/debug-messages-server';
 import { FactsGeneratorModule } from '@kaufman-bot/facts-generator-server';
 import { LanguageSwitherModule } from '@kaufman-bot/language-swither-server';
-import { ShortCommandsModule } from '@kaufman-bot/short-commands-server';
-import { CustomInjectorModule } from 'nestjs-custom-injector';
-import { Module } from '@nestjs/common';
+import {
+  DISABLE_SHORT_COMMANDS__BEFORE_HOOK,
+  ShortCommandsModule,
+} from '@kaufman-bot/short-commands-server';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import env from 'env-var';
-import { TelegrafModule } from 'nestjs-telegraf';
+import { Bot, Context, webhookCallback } from 'grammy';
+import { CustomInjectorModule } from 'nestjs-custom-injector';
 import {
   getDefaultTranslatesModuleOptions,
   TranslatesModule,
@@ -28,19 +32,13 @@ const BOT_NAMES = env.get('BOT_NAMES').required().asArray();
 @Module({
   imports: [
     CustomInjectorModule.forRoot(),
-    TelegrafModule.forRoot({
+    NestjsGrammyModule.forRoot({
       token: env.get('TELEGRAM_BOT_TOKEN').required().asString(),
-      launchOptions: {
-        dropPendingUpdates: true,
-        ...(TELEGRAM_BOT_WEB_HOOKS_DOMAIN && TELEGRAM_BOT_WEB_HOOKS_PATH
-          ? {
-              webhook: {
-                domain: TELEGRAM_BOT_WEB_HOOKS_DOMAIN,
-                hookPath: TELEGRAM_BOT_WEB_HOOKS_PATH,
-              },
-            }
-          : {}),
-      },
+      ...(TELEGRAM_BOT_WEB_HOOKS_DOMAIN && TELEGRAM_BOT_WEB_HOOKS_PATH
+        ? {
+            useWebhook: true,
+          }
+        : {}),
     }),
     TranslatesModule.forRoot(
       getDefaultTranslatesModuleOptions({
@@ -59,6 +57,9 @@ const BOT_NAMES = env.get('BOT_NAMES').required().asArray();
       commit: env.get('DEPLOY_COMMIT').default('').asString(),
       date: env.get('DEPLOY_DATE').default('').asString(),
       version: env.get('DEPLOY_VERSION').default('').asString(),
+      botMeetingInformation: {
+        en: [`Hello! I'm ${BOT_NAMES[0]} 😉`, 'Hello!', 'Hello 🖖'],
+      },
     }),
     ShortCommandsModule.forRoot({
       commands: {
@@ -71,6 +72,9 @@ const BOT_NAMES = env.get('BOT_NAMES').required().asArray();
       },
     }),
     BotInGroupsModule.forRoot({
+      defaultGroupGlobalContext: {
+        [DISABLE_SHORT_COMMANDS__BEFORE_HOOK]: true,
+      },
       botNames: {
         en: BOT_NAMES,
       },
@@ -84,4 +88,16 @@ const BOT_NAMES = env.get('BOT_NAMES').required().asArray();
   ],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  constructor(
+    @InjectBot()
+    private readonly bot: Bot<Context>
+  ) {}
+
+  configure(consumer: MiddlewareConsumer) {
+    const webhook = env.get('TELEGRAM_BOT_WEB_HOOKS_PATH').asString();
+    if (webhook) {
+      consumer.apply(webhookCallback(this.bot, 'express')).forRoutes(webhook);
+    }
+  }
+}

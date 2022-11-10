@@ -12,12 +12,12 @@ https://telegram.me/KaufmanBot - current bot in telegram
 
 ### Create empty nx project
 
-> npx -y create-nx-workspace@13.8.1 --name=kaufman-bot-generated --preset=empty --interactive=false --nx-cloud=false
+> npx -y create-nx-workspace@15.0.13 --name=kaufman-bot-generated --preset=empty --interactive=false --nx-cloud=false
 
 ```sh
-endy@endy-virtual-machine:~/Projects/current$ npx -y create-nx-workspace@13.8.1 --name=kaufman-bot-generated --preset=empty --interactive=false --nx-cloud=false
+endy@endy-virtual-machine:~/Projects/current$ npx -y create-nx-workspace@15.0.13 --name=kaufman-bot-generated --preset=empty --interactive=false --nx-cloud=false
 
- >  NX   Nx is creating your v13.8.1 workspace.
+ >  NX   Nx is creating your v15.0.13 workspace.
 
    To make sure the command works reliably in all environments, and that the preset is applied correctly,
    Nx will run "npm install" several times. Please wait.
@@ -39,10 +39,10 @@ endy@endy-virtual-machine:~/Projects/current$ npx -y create-nx-workspace@13.8.1 
 
 ### Add all need schematics
 
-> npm install -D @nrwl/nest@13.8.1 @kaufman-bot/schematics@2.4.0
+> npm install -D @nrwl/nest@15.0.13 @kaufman-bot/schematics@3.2.0
 
 ```sh
-endy@endy-virtual-machine:~/Projects/current/kaufman-bot-generated$ npm install -D @nrwl/nest@13.8.1 @kaufman-bot/schematics@2.4.0
+endy@endy-virtual-machine:~/Projects/current/kaufman-bot-generated$ npm install -D @nrwl/nest@15.0.13 @kaufman-bot/schematics@3.2.0
 
 added 162 packages, and audited 567 packages in 12s
 
@@ -54,10 +54,10 @@ found 0 vulnerabilities
 
 ### Create kaufman-bot application
 
-> npx -y nx@13.8.1 g @kaufman-bot/schematics:app adam-bot --bot-name adam
+> npx -y nx@15.0.13 g @kaufman-bot/schematics:app adam-bot --bot-name adam
 
 ```sh
-endy@endy-virtual-machine:~/Projects/current/kaufman-bot-generated$ npx -y nx@13.8.1 g @kaufman-bot/schematics:app adam-bot --bot-name adam
+endy@endy-virtual-machine:~/Projects/current/kaufman-bot-generated$ npx -y nx@15.0.13 g @kaufman-bot/schematics:app adam-bot --bot-name adam
 UPDATE package.json
 UPDATE nx.json
 UPDATE tsconfig.base.json
@@ -137,32 +137,7 @@ Debugger listening on ws://localhost:9229/045c9820-61d9-42b1-a3b5-57dc00299eea
 For help, see: https://nodejs.org/en/docs/inspector
 Issues checking in progress...
 [Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [NestFactory] Starting Nest application...
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] TelegrafModule dependencies initialized +49ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] DebugMessagesModule dependencies initialized +0ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] DebugMessagesModule dependencies initialized +0ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] TranslatesModule dependencies initialized +1ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] CustomInjectorModule dependencies initialized +0ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] LanguageSwitherModule dependencies initialized +0ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] LanguageSwitherModule dependencies initialized +0ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] FactsGeneratorModule dependencies initialized +0ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] DiscoveryModule dependencies initialized +1ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] CustomInjectorCoreModule dependencies initialized +1ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] TranslatesModuleCore dependencies initialized +0ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] TranslatesModule dependencies initialized +1ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] BotCommandsModule dependencies initialized +0ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] BotCommandsModule dependencies initialized +1ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] ShortCommandsModule dependencies initialized +0ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] ScraperModule dependencies initialized +0ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] ScraperModule dependencies initialized +0ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] CustomInjectorModule dependencies initialized +1ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] CustomInjectorModule dependencies initialized +0ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] ShortCommandsModule dependencies initialized +0ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] BotInGroupsModule dependencies initialized +1ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] CustomInjectorModule dependencies initialized +0ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] CustomInjectorModule dependencies initialized +1ms
-[Nest] 1363135  - 04/22/2022, 1:32:02 PM     LOG [InstanceLoader] AppModule dependencies initialized +0ms
-No issues found.
-[Nest] 1363135  - 04/22/2022, 1:32:05 PM     LOG [InstanceLoader] TelegrafCoreModule dependencies initialized +2985ms
+...
 [Nest] 1363135  - 04/22/2022, 1:32:05 PM     LOG [TranslatesBootstrapService] onModuleInit
 [Nest] 1363135  - 04/22/2022, 1:32:05 PM     LOG [TranslatesStorage] Add 1 translates for locale: en
 [Nest] 1363135  - 04/22/2022, 1:32:05 PM     LOG [NestApplication] Nest application successfully started +2ms
@@ -252,11 +227,13 @@ export interface SuperConfig {
   descriptions: string;
   usage: string[];
   spyWords: string[];
-  category: string;
+  category: string[];
 }
 
 @Injectable()
 export class SuperService implements BotCommandsProvider {
+  handlerId = SuperService.name;
+
   private readonly logger = new Logger(SuperService.name);
 
   constructor(
@@ -373,7 +350,7 @@ export class SuperModule {
             usage: [getText('super ping'), getText('super help')],
             descriptions: getText('Commands for super'),
             spyWords: [getText('super')],
-            category: BotCommandsCategory.user,
+            category: [BotCommandsCategory.user, BotCommandsCategory.group],
           },
         },
         {

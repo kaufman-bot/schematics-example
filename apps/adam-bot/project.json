@@ -1,12 +1,15 @@
 {
-  "root": "apps/adam-bot",
+  "name": "adam-bot",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/adam-bot/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:build",
+      "executor": "@nrwl/webpack:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
+        "target": "node",
+        "compiler": "tsc",
         "outputPath": "dist/apps/adam-bot",
         "main": "apps/adam-bot/src/main.ts",
         "tsConfig": "apps/adam-bot/tsconfig.app.json",
@@ -27,9 +30,14 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/node:execute",
+      "executor": "@nrwl/js:node",
       "options": {
         "buildTarget": "adam-bot:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "adam-bot:build:production"
+        }
       }
     },
     "lint": {
@@ -41,9 +49,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/adam-bot"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/adam-bot/jest.config.js",
+        "jestConfig": "apps/adam-bot/jest.config.ts",
         "passWithNoTests": true
       }
     }

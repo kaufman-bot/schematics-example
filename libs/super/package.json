@@ -1,15 +1,14 @@
 {
   "i18n": [
     {
-      "scope": "super",
+      "scope": "kaufman-bot-generated-super",
       "path": "src/i18n",
       "strategy": "join"
     },
     {
-      "scope": "super-getText",
+      "scope": "kaufman-bot-generated-super-getText",
       "path": "src/i18n/getText",
       "strategy": "join"
     }
-  ],
-  "version": "0.0.0"
+  ]
 }

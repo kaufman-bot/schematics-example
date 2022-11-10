@@ -25,7 +25,7 @@ export class SuperModule {
             usage: [getText('super ping'), getText('super help')],
             descriptions: getText('Commands for super'),
             spyWords: [getText('super')],
-            category: BotCommandsCategory.user,
+            category: [BotCommandsCategory.user, BotCommandsCategory.group],
           },
         },
         {
