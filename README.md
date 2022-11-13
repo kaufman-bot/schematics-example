@@ -39,10 +39,10 @@ endy@endy-virtual-machine:~/Projects/current$ npx -y create-nx-workspace@15.0.13
 
 ### Add all need schematics
 
-> npm install -D @nrwl/nest@15.0.13 @kaufman-bot/schematics@3.2.0
+> npm install -D @nrwl/nest@15.0.13 @kaufman-bot/schematics@3.2.2
 
 ```sh
-endy@endy-virtual-machine:~/Projects/current/kaufman-bot-generated$ npm install -D @nrwl/nest@15.0.13 @kaufman-bot/schematics@3.2.0
+endy@endy-virtual-machine:~/Projects/current/kaufman-bot-generated$ npm install -D @nrwl/nest@15.0.13 @kaufman-bot/schematics@3.2.2
 
 added 162 packages, and audited 567 packages in 12s
 

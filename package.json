@@ -16,7 +16,7 @@
   },
   "private": true,
   "devDependencies": {
-    "@kaufman-bot/schematics": "^3.2.0",
+    "@kaufman-bot/schematics": "^3.2.2",
     "@nestjs/schematics": "9.0.3",
     "@nestjs/testing": "^9.0.0",
     "@ngneat/transloco-keys-manager": "^3.4.2",
@@ -50,7 +50,7 @@
     "@kaufman-bot/debug-messages-server": "*",
     "@kaufman-bot/facts-generator-server": "*",
     "@kaufman-bot/html-scraper-server": "*",
-    "@kaufman-bot/language-swither-server": "*",
+    "@kaufman-bot/language-switcher-server": "*",
     "@kaufman-bot/short-commands-server": "*",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
